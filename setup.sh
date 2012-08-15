@@ -6,23 +6,34 @@
 
 function setup {
     bldylw
-    echo "    Doing thing number one"
-    #actual command goes here
-    bldgrn
-    echo "    Done"
-    #or
+    echo "    Adding ./texlibs to the TEXINPUT path variable"
     bldred
-    echo "    Failed"
-
-
-    #after everything else, this is probably the last step.
-    bldylw
-    echo "    Updating installation status"
-    echo 0 > ./installation_status
-    bldgrn
-    echo "    Done"
-    bldgrn
-    echo "Installation Successful"
+    echo "    SUDO PERMISSION REQUIRED:"
+    sudo ./addpath.sh
+    
+    if [[ $? == "0" ]]
+    then
+        bldgrn
+        echo "    Done"
+        bldylw
+        echo "    Updating installation status"
+        echo 0 > ./installation_status
+        bldgrn
+        echo "    Done"
+        bldgrn
+        echo "Installation Successful"
+    else
+        bldred
+        echo "    Failed"
+        bldylw
+        echo "    Updating installation status"
+        echo 1 > ./installation_status
+        bldgrn
+        echo "    Done"
+        bldred
+        echo "Installation Failed"
+    fi
+    
 }
 
 
