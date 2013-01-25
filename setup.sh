@@ -5,11 +5,7 @@
 . ~/.libs/colours
 
 function setup {
-    bldylw
-    echo "    Adding ./texlibs to the TEXINPUT path variable"
-    bldred
-    echo "    SUDO PERMISSION REQUIRED:"
-    sudo ./addpath.sh
+    sudo ./getLatexLibs.sh
     
     if [[ $? == "0" ]]
     then
