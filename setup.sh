@@ -2,6 +2,11 @@
 #setup.sh - this is a default setup script to make the process of making these
 #           for other applications easier.
 
+
+#This takes forever, and I don't want it to auto-install.
+echo 0 > ./installation_status
+exit 0
+
 . ~/.libs/colours
 
 function setup {
